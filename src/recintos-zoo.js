@@ -1,11 +1,11 @@
 class RecintosZoo {
     constructor() {
         this.recintos = [
-            { numero: 1, bioma: 'savana', tamanho: 10, animais: 3 }, // 3 macacos
-            { numero: 2, bioma: 'floresta', tamanho: 5, animais: 0 }, // vazio
-            { numero: 3, bioma: 'savana e rio', tamanho: 7, animais: 1 }, // 1 gazela
-            { numero: 4, bioma: 'rio', tamanho: 8, animais: 0 }, // vazio
-            { numero: 5, bioma: 'savana', tamanho: 9, animais: 1 }, // 1 leão
+            { numero: 1, bioma: 'savana', tamanho: 10, animais: 3 }, 
+            { numero: 2, bioma: 'floresta', tamanho: 5, animais: 0 }, 
+            { numero: 3, bioma: 'savana e rio', tamanho: 7, animais: 1 }, 
+            { numero: 4, bioma: 'rio', tamanho: 8, animais: 0 }, 
+            { numero: 5, bioma: 'savana', tamanho: 9, animais: 1 }, 
         ];
 
         this.animaisValidos = {
@@ -36,26 +36,26 @@ class RecintosZoo {
 
             let regrasRespeitadas = true;
 
-            // Verificação das regras de alocação de animais
+            
             if (['LEAO', 'LEOPARDO'].includes(especie)) {
                 if (recinto.animais > 0) {
-                    regrasRespeitadas = false; // Não pode ter outro animal
+                    regrasRespeitadas = false; 
                 }
             } else if (especie === 'MACACO') {
                 if (recinto.animais > 0) {
-                    regrasRespeitadas = false; // Não pode ter outro macaco se já houver
+                    regrasRespeitadas = false; 
                 }
             } else if (especie === 'CROCODILO') {
                 if (recinto.animais > 0) {
-                    regrasRespeitadas = false; // Não pode ter outro animal
+                    regrasRespeitadas = false; 
                 }
             } else if (especie === 'HIPOPOTAMO') {
                 if (!recinto.bioma.includes('savana e rio') && recinto.animais > 0) {
-                    regrasRespeitadas = false; // Verifica se o bioma é adequado
+                    regrasRespeitadas = false; 
                 }
             }
 
-            // Verifica se todas as condições foram atendidas
+            // 
             if (biomaApropriado && espacoSuficiente && regrasRespeitadas) {
                 const espacoLivre = recinto.tamanho - espacoOcupado - (quantidade * animalInfo.tamanho);
                 recintosViaveis.push(`Recinto ${recinto.numero} (espaço livre: ${espacoLivre} total: ${recinto.tamanho})`);
